@@ -37,6 +37,9 @@ export default {
             theme: 'light',
         }
     },
+    created(){
+        this.getThemeSetting();
+    },
     methods: {
         changeTheme() {
             if (this.theme == 'light') {
@@ -44,6 +47,16 @@ export default {
             }
             else {
                 this.theme = 'light';
+            }
+            this.storeThemeSetting();
+        },
+        storeThemeSetting() {
+            localStorage.setItem('theme', this.theme);
+        },
+        getThemeSetting() {
+            let theme = localStorage.getItem('theme');
+            if (theme) {
+                this.theme = theme;
             }
         }
     }

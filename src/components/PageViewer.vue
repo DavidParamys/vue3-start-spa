@@ -7,9 +7,18 @@
 
 <script>
 export default{
-    props: ['page']
+    props: {
+        page: {
+            type: Object, 
+            default(ramProps){
+                return  {
+                    pageTitle: '',
+                    content: ''
+                };
+            }
+        }
+    }
 }
-
 </script>
 
 <style scoped>
