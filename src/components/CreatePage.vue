@@ -33,7 +33,7 @@
                     <input
                     type="text"
                     class="form-control"
-                    v-model="linkTexts"
+                    v-model="linkText"
                     />
                 </div>
                 <div class="mb-3">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox">
+                        <input class="form-check-input" type="checkbox" v-model="published">
                         <label class="form-check-label" for="gridCheck1">
                         Published
                         </label>
@@ -72,20 +72,21 @@ export default {
     props: ['pageCreated'],
     computed: {
         isFormInvalid() {
-            return !this.pageTitle || !this.content || !this.linkTexts || !this.linkUrl
+            return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl
         }
     },
     data() {
         return  {
             pageTitle: '',
             content: '',
-            linkTexts: '',
-            linkUrl: ''
+            linkText: '',
+            linkUrl: '',
+            published: true
         }
     },
     methods: {
         submitForm() {
-            if (!this.pageTitle || !this.content || !this.linkTexts || !this.linkUrl) {
+            if (!this.pageTitle || !this.content || !this.linkText || !this.linkUrl) {
                 alert("Please fill the form");
                 return;
             }
@@ -97,8 +98,14 @@ export default {
                     text: this.linkText,
                     url: this.linkUrl
                 },
-                published: true
+                published: this.published
             });
+
+            this.pageTitle = '';
+            this.content = '';
+            this.linkText = '';
+            this.linkUrl = '';
+            this.published = true;
         }
     }
 };
