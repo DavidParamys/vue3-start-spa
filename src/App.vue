@@ -4,7 +4,9 @@
         :active-page="activePage"
     ></navbar>
 
-    <div v-show="false">Hide this content</div>
+    <router-view></router-view>
+
+    <!-- <div v-show="false">Hide this content</div>
 
     <page-viewer 
         v-if="pages.length > 0"
@@ -13,7 +15,7 @@
 
     <create-page
         @page-created="pageCreated"
-    ></create-page>
+    ></create-page> -->
 
 </template>
 
