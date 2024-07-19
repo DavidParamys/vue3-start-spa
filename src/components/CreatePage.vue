@@ -50,7 +50,7 @@
 export default {
     props: ['pageCreated'],
     emits: {
-        pageCreated({ pageTitle, content, link, published }) {
+        pageCreated({ pageTitle, content, link}) {
             if (!pageTitle) {
                 return false;
             }
