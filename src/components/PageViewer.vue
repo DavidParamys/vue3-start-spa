@@ -1,22 +1,14 @@
 <template>
     <div id="content" class="container">
-        <h1 class="emphasize">{{ page.pageTitle }}</h1>
-        <p>{{ page.content }}</p>
+        <h1 class="emphasize">page.pageTitle</h1>
+        <p>{{ $route.params.index }}</p>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        page: {
-            type: Object,
-            default(ramProps) {
-                return {
-                    pageTitle: '',
-                    content: ''
-                };
-            }
-        }
+    created() {
+        // console.log(this.$route.params)
     }
 }
 </script>
