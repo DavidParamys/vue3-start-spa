@@ -6,12 +6,12 @@
 </template>
 
 <script>
-export default{
+export default {
     props: {
         page: {
-            type: Object, 
-            default(ramProps){
-                return  {
+            type: Object,
+            default(ramProps) {
+                return {
                     pageTitle: '',
                     content: ''
                 };
