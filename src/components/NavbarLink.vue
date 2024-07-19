@@ -3,6 +3,7 @@
         <router-link
             :to="`/${index}`"
             class="nav-link" 
+            active-class="active emphasize"
             :class="activeClasses"
             aria-current="page" 
             :href="page.link.url"

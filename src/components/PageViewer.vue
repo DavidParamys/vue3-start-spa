@@ -24,7 +24,7 @@ export default {
     watch: {
         // Option 2, remember to actived route props: true
         index(newIndex, oldIndex){
-            this.page = this.$pages.getSinglePage(newParams.index);
+            this.page = this.$pages.getSinglePage(newIndex);
         }
     }
 }
