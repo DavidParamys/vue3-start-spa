@@ -39,16 +39,21 @@ export default {
     components:{
         NavbarLink
     },
-    inject: ['$pages'],
+    inject: ['$pages', '$bus'],
+    data() {
+        return {
+            pages: [],
+            theme: 'light',
+        }
+    },
     created(){
         this.getThemeSetting();
 
         this.pages = this.$pages.getAllPages();
-    },
-    data() {
-        return {
-            theme: 'light',
-        }
+
+        this.$bus.$on('page-updated', () => {
+            this.pages = [...this.$pages.getAllPages()];
+        });
     },
     computed:{
         publishedPages() {
